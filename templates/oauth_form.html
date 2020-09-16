@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="heading-container">
+    <h1>Convo</h1>
+    <p>Login to your browser extension</p>
+  </div>
+
+  <form class="form" action="/oauth" method="POST">
+    <button class="white">
+      <img src="google-logo.svg" class="logo">
+      <span>Continue with Google</span>
+    </button>
+    <button class="white">
+      <img src="facebook-logo.svg" class="logo">
+      <span>Continue with Facebook</span>
+    </button>
+    <a class="button white" href="/email">
+      <i class="material-icons logo">email</i>
+      <span>Continue with email</span>
+    </a>
+  </form>
+</div>
+{% endblock %}

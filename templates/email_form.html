@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="heading-container">
+    <h1>Convo</h1>
+    <p>Login to your browser extension</p>
+  </div>
+
+  <form class="form" action="/email" method="POST">
+    <label>
+      <span>Email</span>
+      <input type="email" required autofocus>
+    </label>
+    <label>
+      <span>Password</span>
+      <input type="password" required>
+    </label>
+    <button class="green" type="submit">Login</button>
+  </form>
+
+    <a href="/" class="button subtle">
+      <i class="material-icons back-icon">arrow_back</i>
+      <span>Back</span>
+    </a>
+</div>
+{% endblock %}
