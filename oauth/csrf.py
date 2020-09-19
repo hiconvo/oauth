@@ -1,3 +1,6 @@
 from itsdangerous import TimestampSigner
 
-csrf_signer = TimestampSigner("mysecret")
+from .env import SECRET
+
+
+csrf_signer = TimestampSigner(SECRET)

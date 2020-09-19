@@ -16,10 +16,6 @@
       rel="stylesheet"
       href="/styles.css"
     />
-    <!-- Google Sign In -->
-    <script src="https://apis.google.com/js/api.js"></script>
-    <!-- Facebook Sign In -->
-    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
     <!-- Plausible -->
     <script
       async
@@ -27,6 +23,7 @@
       data-domain="oauth.convo.events"
       src="https://plausible.io/js/plausible.js"
     ></script>
+    {% block scripts %}{% endblock %}
   </head>
   <body>
     {% include "partial/header.html" %}

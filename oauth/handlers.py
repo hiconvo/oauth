@@ -6,6 +6,7 @@ from starlette.exceptions import HTTPException
 
 from .templates import templates
 from .csrf import csrf_signer
+from .env import GOOGLE_API_KEY, GOOGLE_CLIENT_ID, FACEBOOK_APP_ID
 
 
 def with_context(action):
@@ -21,6 +22,9 @@ def with_context(action):
                 "csrf": csrf_signer.sign("").decode("utf-8"),
                 "action": f"/{action}?redirect_uri={quoted_redirect_uri}",
                 "redirect_uri": quoted_redirect_uri,
+                "google_api_key": GOOGLE_API_KEY,
+                "google_client_id": GOOGLE_CLIENT_ID,
+                "facebook_app_id": FACEBOOK_APP_ID,
             }
             return await func(request, context)
 
@@ -41,6 +45,10 @@ def with_form_handling(template):
                 return templates.TemplateResponse(template, context, 400)
 
             response = await func(request, context, form_data)
+
+            if response.status_code >= 500:
+                context["error"] = "Whoops! Please try again."
+                return templates.TemplateResponse(template, context, 400)
 
             json = response.json()
 
