@@ -7,19 +7,28 @@
     <p>Login to your browser extension</p>
   </div>
 
-  <form class="form" action="/email" method="POST">
+  <div>
+    {% if error|length > 0 %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+
+  <form class="form" action="/email?redirect_uri={{ redirect_uri }}" method="POST">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <input type="hidden" name="provider" value="email">
+
     <label>
       <span>Email</span>
-      <input type="email" required autofocus>
+      <input type="email" name="email" required autofocus>
     </label>
     <label>
       <span>Password</span>
-      <input type="password" required>
+      <input type="password" name="password" required>
     </label>
     <button class="green" type="submit">Login</button>
   </form>
 
-    <a href="/" class="button subtle">
+    <a href="/?redirect_uri={{ redirect_uri }}" class="button subtle">
       <i class="material-icons back-icon">arrow_back</i>
       <span>Back</span>
     </a>

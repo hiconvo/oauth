@@ -7,19 +7,42 @@
     <p>Login to your browser extension</p>
   </div>
 
-  <form class="form" action="/oauth" method="POST">
-    <button class="white">
-      <img src="google-logo.svg" class="logo">
-      <span>Continue with Google</span>
-    </button>
-    <button class="white">
-      <img src="facebook-logo.svg" class="logo">
-      <span>Continue with Facebook</span>
-    </button>
-    <a class="button white" href="/email">
+  <div>
+    {% if error|length > 0 %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+
+  <div class="form">
+    <form action="{{ action }}" method="POST" class="form">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <input type="hidden" name="token" value="">
+      <input type="hidden" name="provider" value="google">
+
+      <button class="white" id="google">
+        <img src="google-logo.svg" class="logo">
+        <span>Continue with Google</span>
+      </button>
+    </form>
+
+    <form action="{{ action }}" method="POST" class="form">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <input type="hidden" name="token" value="">
+      <input type="hidden" name="provider" value="facebook">
+
+      <button class="white" id="facebook">
+        <img src="facebook-logo.svg" class="logo">
+        <span>Continue with Facebook</span>
+      </button>
+    </form>
+
+    <a class="button white" href="/email?redirect_uri={{redirect_uri}}">
       <i class="material-icons logo">email</i>
       <span>Continue with email</span>
     </a>
-  </form>
+  </div>
 </div>
+
+<script src="/oauth-google.js"></script>
+<script src="/oauth-facebook.js"></script>
 {% endblock %}
