@@ -41,7 +41,7 @@
       });
     }
 
-    document.addEventListener("DOMContentLoaded", initGoogle);
+    window.addEventListener("load", initGoogle);
   </script>
   <script>
     function handleFBClick(e) {
@@ -68,7 +68,7 @@
       document.getElementById("facebook").addEventListener("click", handleFBClick);
     }
 
-    document.addEventListener("DOMContentLoaded", initFB);
+    window.addEventListener("load", initFB);
   </script>
 {% endblock %}
 
