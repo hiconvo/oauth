@@ -22,6 +22,7 @@ def with_context(action):
                 "csrf": csrf_signer.sign("").decode("utf-8"),
                 "action": f"/{action}?redirect_uri={quoted_redirect_uri}",
                 "redirect_uri": quoted_redirect_uri,
+                "unquoted_redirect_uri": redirect_uri,
                 "google_api_key": GOOGLE_API_KEY,
                 "google_client_id": GOOGLE_CLIENT_ID,
                 "facebook_app_id": FACEBOOK_APP_ID,
@@ -57,7 +58,7 @@ def with_form_handling(template):
                 return templates.TemplateResponse(template, context, 400)
 
             token = json.get("token")
-            redirect_uri = context.get("redirect_uri")
+            redirect_uri = context.get("unquoted_redirect_uri")
 
             return RedirectResponse(
                 url=f"{redirect_uri}?token={token}", status_code=302
