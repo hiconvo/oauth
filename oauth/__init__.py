@@ -18,9 +18,7 @@ async def server_error(request, exc):
 app = Starlette(
     debug=os.getenv("DEBUG"),
     routes=[
-        Route("/", oauth_form, methods=["GET"]),
-        Route("/oauth", oauth, methods=["POST"]),
-        Route("/email", email_form, methods=["GET"]),
+        Route("/", email_form, methods=["GET"]),
         Route("/email", email, methods=["POST"]),
         Mount("/", app=StaticFiles(directory="static")),
     ],

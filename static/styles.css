@@ -295,3 +295,19 @@ footer {
   color: red;
   margin-bottom: 2.4rem;
 }
+
+.helptext {
+  display: block;
+  margin-bottom: 3.2rem;
+  background-color: lightyellow;
+  border-radius: 1.2rem;
+  border: 1px solid #eee;
+  padding: 1.4rem 1.8rem;
+  font-size: 1.4rem;
+  line-height: 1.4em;
+  color: black;
+}
+
+.helptext a {
+  text-decoration: underline;
+}

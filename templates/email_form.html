@@ -8,6 +8,10 @@
   </div>
 
   <div>
+    <p class="helptext">If you do not have a password associated with your account, you can create one on Convo's <a href="https://app.convo.events/settings" target="_blank">settings page</a>.</p>
+  </div>
+
+  <div>
     {% if error|length > 0 %}
       <p class="error">{{ error }}</p>
     {% endif %}
@@ -28,9 +32,9 @@
     <button class="green" type="submit">Login</button>
   </form>
 
-  <a href="/?redirect_uri={{ redirect_uri }}" class="button subtle">
-    <i class="material-icons back-icon">arrow_back</i>
-    <span>Back</span>
-  </a>
+  <!-- <a href="/?redirect_uri={{ redirect_uri }}" class="button subtle"> -->
+  <!--   <i class="material-icons back-icon">arrow_back</i> -->
+  <!--   <span>Back</span> -->
+  <!-- </a> -->
 </div>
 {% endblock %}
