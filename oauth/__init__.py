@@ -4,7 +4,7 @@ from starlette.routing import Route, Mount
 from starlette.staticfiles import StaticFiles
 
 from .templates import templates
-from .handlers import oauth_form, oauth, email_form, email
+from .handlers import email_form, email
 
 
 async def not_found(request, exc):
@@ -16,7 +16,7 @@ async def server_error(request, exc):
 
 
 app = Starlette(
-    debug=os.getenv("DEBUG"),
+    debug=os.getenv("DEBUG", False),
     routes=[
         Route("/", email_form, methods=["GET"]),
         Route("/email", email, methods=["POST"]),

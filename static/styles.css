@@ -200,17 +200,6 @@ button,
   transition: all 200ms ease-in-out;
 }
 
-button.white,
-.button.white {
-  box-shadow: 0rem 0.4rem 0.8rem 0rem rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-}
-
-button.white:hover,
-.button.white:hover {
-  background-color: #d1d5da;
-}
-
 button.green,
 .button.green {
   background-color: #00bfa2;
@@ -223,11 +212,6 @@ button.green:hover,
   box-shadow: 0rem 0.4rem 0.8rem 0rem rgba(0, 0, 0, 0.1);
 }
 
-.button.subtle {
-  font-weight: 400;
-  color: #1b1f23;
-}
-
 button:focus,
 .button:focus,
 button:active,
@@ -235,16 +219,6 @@ button:active,
   outline: none;
   border: none;
   box-shadow: 0 0 0 0.3rem #45dfc8;
-}
-
-.logo {
-  width: 2.2rem;
-  margin-right: 0.8rem;
-}
-
-.back-icon {
-  margin-right: 0.4rem;
-  font-size: 1.6rem;
 }
 
 label {
