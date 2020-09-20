@@ -61,7 +61,7 @@ def with_form_handling(template):
             redirect_uri = context.get("unquoted_redirect_uri")
 
             return RedirectResponse(
-                url=f"{redirect_uri}?token={token}", status_code=302
+                url=f"{redirect_uri}?token={urllib.parse.quote(token)}", status_code=302
             )
 
         return handle_form
